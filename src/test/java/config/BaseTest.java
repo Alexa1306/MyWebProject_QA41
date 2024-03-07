@@ -34,7 +34,7 @@ public class BaseTest { // Эта строка объявляет начало �
     // Аннотация @Optional("firefox") означает, что значение по умолчанию для browser - это "firefox".
     @BeforeMethod
     @Parameters("browser")
-    public void setUp(@Optional("chrome") String browser){
+    public void setUp(@Optional("firefox") String browser){
 
         // Этот блок кода проверяет, является ли значение параметра browser равным "chrome".
         // Если да, то он настраивает ChromeDriver и добавляет опции для запуска браузера на английском языке.
@@ -62,7 +62,7 @@ public class BaseTest { // Эта строка объявляет начало �
             // options.addArguments("-headless");
             driverThreadLocal.set(new FirefoxDriver(options));
         }
-        else if (browser.equalsIgnoreCase("safari")) {
+        /*else if (browser.equalsIgnoreCase("safari")) {
             SafariOptions options = new SafariOptions();
             options.setCapability("language", "en");
             driverThreadLocal.set(new SafariDriver());
@@ -73,7 +73,7 @@ public class BaseTest { // Эта строка объявляет начало �
             options.setCapability("language", "en");
             //options.addArguments("--headless");
             driverThreadLocal.set(new EdgeDriver(options));
-        }
+        }*/
         else{throw new IllegalArgumentException("Invalid browser "+browser); }
 
         // Этот блок кода получает веб-драйвер с помощью метода getDriver(), максимизирует окно браузера,
